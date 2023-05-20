@@ -4,7 +4,7 @@
     "description": "book my show api",
     "main": "index.js",
     "scripts": {
-        "devStart": "nodemon index.js",
+        "devStart": "nodemon src/index.js",
         "format:check": "prettier --check .",
         "format:write": "prettier --write .",
         "lint:check": "eslint . ",
