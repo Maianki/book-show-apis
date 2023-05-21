@@ -4,13 +4,11 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const routes = express.Router();
 const app = express();
-const moviesRoutes = require('./routes/moviesRoutes');
 const theatreRoutes = require('./routes/theatresRoutes');
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(routes);
-routes.use('/', moviesRoutes);
 routes.use('/', theatreRoutes);
 
 require('dotenv').config();

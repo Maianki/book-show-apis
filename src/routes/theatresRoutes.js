@@ -126,4 +126,35 @@ theatreRoutes.get('/theatres/:theatreId/movies', (req, res) => {
     }
 });
 
+theatreRoutes.get('/theatres/:theatreId/dates', (req, res) => {
+    let theatreId = req.params.theatreId;
+    if (!isNaN(theatreId)) {
+        (async () => {
+            try {
+                const theatreDates = await sequelize.query(
+                    `SELECT DISTINCT DATE(show_date) as date FROM showtimes WHERE theatre_id = ${theatreId};`,
+                    {
+                        type: QueryTypes.SELECT,
+                    }
+                );
+
+                res.status(200).json({
+                    statusCode: 200,
+                    data: theatreDates,
+                });
+            } catch (err) {
+                res.status(500).json({
+                    statusCode: 500,
+                    message: 'Internal server error!',
+                });
+            }
+        })();
+    } else {
+        res.status(500).json({
+            statusCode: 500,
+            message: 'Theatre ID is not valid!',
+        });
+    }
+});
+
 module.exports = theatreRoutes;
