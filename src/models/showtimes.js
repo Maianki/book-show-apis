@@ -27,8 +27,4 @@ const ShowTime = sequelize.define('showtime', {
 ShowTime.belongsTo(Movie, { foreignKey: 'movie_id' });
 ShowTime.belongsTo(Theatre, { foreignKey: 'theatre_id' });
 
-(async () => {
-    await ShowTime.sync({ force: true });
-})();
-
 module.exports = ShowTime;

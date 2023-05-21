@@ -19,8 +19,4 @@ const Movie = sequelize.define('movie', {
     },
 });
 
-(async () => {
-    await Movie.sync({ alter: true });
-})();
-
 module.exports = Movie;

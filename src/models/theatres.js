@@ -1,7 +1,7 @@
 const { sequelize } = require('../configs/mysqldb');
 const DataTypes = require('sequelize');
 
-const Theatre = sequelize.define('theatre', {
+const Theatre = sequelize.define('theatres', {
     theatre_id: {
         type: DataTypes.BIGINT,
         autoIncrement: true,
@@ -19,9 +19,5 @@ const Theatre = sequelize.define('theatre', {
         type: DataTypes.INTEGER(100),
     },
 });
-
-(async () => {
-    await Theatre.sync({ alter: true });
-})();
 
 module.exports = Theatre;
