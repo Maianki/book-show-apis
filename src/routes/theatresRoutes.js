@@ -2,8 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const theatreRoutes = express.Router();
 const Theatre = require('../models/theatres');
-const Movie = require('../models/movies');
-const ShowTime = require('../models/showtimes');
 const { QueryTypes } = require('sequelize');
 const { sequelize } = require('../configs/mysqldb');
 
