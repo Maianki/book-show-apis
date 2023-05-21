@@ -1,5 +1,5 @@
 const express = require('express');
-const { sequalize, connectToDB } = require('./configs/mysqldb');
+const { connectToDB } = require('./configs/mysqldb');
 
 const app = express();
 
