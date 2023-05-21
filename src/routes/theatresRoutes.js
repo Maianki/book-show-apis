@@ -130,7 +130,7 @@ theatreRoutes.get('/theatres/:theatreId/dates', (req, res) => {
         (async () => {
             try {
                 const theatreDates = await sequelize.query(
-                    `SELECT DISTINCT DATE(show_date) as date FROM showtimes WHERE theatre_id = ${theatreId};`,
+                    `SELECT DISTINCT DATE(show_date) as date FROM showtimes WHERE theatre_id = ${theatreId} ORDER BY date asc;`,
                     {
                         type: QueryTypes.SELECT,
                     }
